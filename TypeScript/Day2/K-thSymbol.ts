@@ -7,4 +7,19 @@ integer n and k, return the kth (1-indexed) symbol in the nth row of a table of 
 
 */
 
-const KthSymbol = () => {}
+const KthSymbol = (n:number, k:number ): number => {
+    if (n==0)
+        return 0
+
+    let half = 2**(n-1)
+    if (k <= half){
+        return KthSymbol(n-1, k)
+    } else {
+        return 1 - KthSymbol(n-1, k-half)
+    }
+}
+
+console.log(KthSymbol(3,1))
+console.log(KthSymbol(3,2))
+console.log(KthSymbol(3,3))
+console.log(KthSymbol(3,4))

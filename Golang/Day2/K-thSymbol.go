@@ -7,8 +7,32 @@ integer n and k, return the kth (1-indexed) symbol in the nth row of a table of 
 
 */
 
-package day2
+// the first half of the row is the same as the previous row and the second half is the inverted version of the first half
 
-func KthSymbol() {
+package main
+
+func KthSymbol(n, k int) int {
+	if n == 1 {
+		return 0
+	}
+
+	// Độ dài hàng n là 2^(n-1), nửa đầu là 2^(n-2)
+	// a << x = a * 2^x
+	half := 1 << (n - 2) // 2^(n-2) ) phép dịch bit trái
+
+	if k <= half {
+		// Nửa đầu: giống y hàng trước
+		return KthSymbol(n-1, k)
+	}
+
+	// Nửa sau: là đảo bit của hàng trước tại vị trí (k - half)
+	val := KthSymbol(n-1, k-half)
+	if val == 0 {
+		return 1
+	}
+	return 0
+
+	// hoặc
+	// return 1 - KthSymbol(n-1, k-half)
 
 }
