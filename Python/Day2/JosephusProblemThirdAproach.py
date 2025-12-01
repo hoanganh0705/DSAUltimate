@@ -8,3 +8,11 @@
 	If there is still more than one friend in the circle, go back to step 2 starting from the friend immediately clockwise of the friend who just lost and repeat.
 	Else, the last friend in the circle wins the game. Given the number of friends, n, and an integer k, return the winner of the game.
 '''
+
+def findTheWinner3(n,k ):
+    survivor = 0 
+    
+    for i in range(2, n + 1):
+        survivor = (survivor + k) % i\
+        
+    return survivor + 1
