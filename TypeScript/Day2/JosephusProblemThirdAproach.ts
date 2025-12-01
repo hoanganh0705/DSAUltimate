@@ -8,3 +8,11 @@
 	If there is still more than one friend in the circle, go back to step 2 starting from the friend immediately clockwise of the friend who just lost and repeat.
 	Else, the last friend in the circle wins the game. Given the number of friends, n, and an integer k, return the winner of the game.
 */
+
+const findTheWinner3 = (n: number, k: number): number => {
+	let survivor = 0;
+	for (let i = 2; i <= n; i++) {
+		survivor = (survivor + k) % i;
+	}
+	return survivor + 1;
+}
