@@ -9,21 +9,23 @@
 	Else, the last friend in the circle wins the game. Given the number of friends, n, and an integer k, return the winner of the game.
 */
 
-// in this approach we will find the winner with n people and k step count by using the winner of n-1 people and k step count
-// for example if we have 5 people and k=2 then the winner can be found by finding the winner of 4 people and k=2
-// 5 people: 1 2 3 4 5, and eliminate 2 -> 1 3 4 5 then the winner of 4 people with k=2 is 1 so we can say that the winner of 5 people is 3 because 3 is the next person after 2
+function findTheWinner(n: number, k: number): number {
+  // tạo mảng từ 1 đến n
+  const friends: number[] = Array.from({ length: n }, (_, i) => i + 1);
 
-package main
+  const helper = (friends: number[], startIndex: number): number => {
+    // base case
+    if (friends.length === 1) {
+      return friends[0];
+    }
 
-func findTheWinner2(n int, k int) int {
-	var helper func(int) int
+    // recursive case
+    const indexToRemove = (startIndex + k - 1) % friends.length;
+    // xoá phần tử tại indexToRemove (in-place)
+    friends.splice(indexToRemove, 1);
 
-	helper = func(n int) int {
-		if n == 1 {
-			return 0
-		}
-		return (helper(n-1) + k) % n
-	}
+    return helper(friends, indexToRemove);
+  };
 
-	return helper(n) + 1
+  return helper(friends, 0);
 }
