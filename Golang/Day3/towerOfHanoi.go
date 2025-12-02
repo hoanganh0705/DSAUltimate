@@ -50,9 +50,3 @@ func toh(n int, from string, to string, aux string) int {
 	helper(n, from, to, aux)
 	return counter
 }
-
-func main() {
-	n := 3
-	moves := toh(n, "rod 1", "rod 3", "rod 2")
-	fmt.Println(moves)
-}
