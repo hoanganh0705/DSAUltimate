@@ -18,4 +18,13 @@ Output:
 
 '''
 
+def subsequents(i, cur, s):
+    if (i == len(s)):
+        print(cur)
+        return
+
+    subsequents(i+1, cur, s)
+    subsequents(i+1, cur + s[i], s)
+
+subsequents(0, "", "abc")
 
