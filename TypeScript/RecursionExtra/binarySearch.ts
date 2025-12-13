@@ -13,3 +13,26 @@
 //
 // Input: sorted array = [1, 3, 5, 7, 9], target = 6
 // Output: -1 (not found)
+
+function binarySearch(arr: number[], target: number): number {
+    let left: number = 0;
+    let right: number = arr.length - 1;
+
+    while (left <= right) {
+        const mid: number = Math.floor((left + right) / 2);
+
+        if (arr[mid] === target) {
+            return mid; // Target found
+        } else if (arr[mid] < target) {
+            left = mid + 1; // Search in the right half
+        } else {
+            right = mid - 1; // Search in the left half
+        }
+    }
+
+    return -1; // Target not found
+}
+
+// Example usage:
+console.log(binarySearch([1, 3, 5, 7, 9], 5)); // Output: 2
+console.log(binarySearch([1, 3, 5, 7, 9], 6)); // Output: -1

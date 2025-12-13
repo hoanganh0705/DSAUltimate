@@ -26,3 +26,14 @@
 // Output: "" (empty string remains empty)
 
 package main
+
+func reverseString(s string) string {
+	if s == "" {
+		return ""
+	}
+	if len(s) == 1 {
+		return s
+	}
+	return string(s[len(s)-1]) + reverseString(s[:len(s)-1])
+
+}
