@@ -24,3 +24,17 @@
 #
 # Input: ""
 # Output: "" (empty string remains empty)
+
+def reverse_string(s: str) -> str:
+    # Convert the string to a list to allow swapping
+    char_list = list(s)
+    left, right = 0, len(char_list) - 1
+    
+    # Use two pointers to swap characters
+    while left < right:
+        char_list[left], char_list[right] = char_list[right], char_list[left]
+        left += 1
+        right -= 1
+    
+    # Convert the list back to a string and return
+    return ''.join(char_list)

@@ -16,5 +16,21 @@
 
 package main
 
-func binarySearch(target int, arr *[]int, i int) {
+func binarySearch(arr *[]int, target int, left int, right int) int {
+	// base case: không còn khoảng tìm kiếm
+	if left > right {
+		return -1
+	}
+
+	mid := left + (right-left)/2
+
+	if (*arr)[mid] == target {
+		return mid
+	}
+
+	if target < (*arr)[mid] {
+		return binarySearch(arr, target, left, mid-1)
+	}
+
+	return binarySearch(arr, target, mid+1, right)
 }
