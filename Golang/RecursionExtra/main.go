@@ -17,6 +17,12 @@ func main() {
 
 	// fmt.Println(factorial(5))
 
-	arr := []int{1, 2, 3, 4, 5}
-	fmt.Println(sumPtr(&arr, 0))
+	// arr := []int{1, 2, 3, 4, 5}
+	// fmt.Println(sumPtr(&arr, 0))
+
+	n := 5
+	result := fibonacci(n)
+	fmt.Println(result)
+
+	printFibonacci(n, 0, 1)
 }
