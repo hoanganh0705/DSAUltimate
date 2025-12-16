@@ -11,3 +11,17 @@
 # Space Complexity: O(n) (due to the recursion stack)
 #
 # Note: Each recursive call branches into two, creating a call tree.
+
+def generateSubsets(arr):
+    if len(arr) == 0:
+        return [[]] 
+    
+    first = arr[0]
+    rest_subsets = generateSubsets(arr[1:])
+    subsets_with_first = [[first] + subset for subset in rest_subsets]
+    return rest_subsets + subsets_with_first
+
+# Example usage:
+input_set = [1, 2, 3]
+subsets = generateSubsets(input_set)
+print("All subsets:", subsets)

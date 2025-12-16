@@ -20,9 +20,12 @@ func main() {
 	// arr := []int{1, 2, 3, 4, 5}
 	// fmt.Println(sumPtr(&arr, 0))
 
-	n := 5
-	result := fibonacci(n)
-	fmt.Println(result)
+	// n := 5
+	// result := fibonacci(n)
+	// fmt.Println(result)
 
-	printFibonacci(n, 0, 1)
+	// printFibonacci(n, 0, 1)
+
+	numbers := []int{1, 2, 3}
+	fmt.Println(generateSubsets(numbers))
 }

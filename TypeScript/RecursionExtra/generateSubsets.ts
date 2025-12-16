@@ -11,3 +11,22 @@
 // Space Complexity: O(n) (due to the recursion stack)
 //
 // Note: Each recursive call branches into two, creating a call tree.
+
+const generateSubsets = (arr: number[]): number[][] => {
+    if (arr.length === 0) {
+        return [[]];
+    }
+
+    const firstElement = arr[0];
+    const restOfArray = arr.slice(1);
+
+    const subsetsWithoutFirst = generateSubsets(restOfArray);
+    const subsetsWithFirst = subsetsWithoutFirst.map(subset => [firstElement, ...subset]);
+
+    return [...subsetsWithoutFirst, ...subsetsWithFirst]; 
+};
+
+// Example usage:
+const inputArray = [1, 2, 3];
+const subsets = generateSubsets(inputArray);
+console.log(subsets);
