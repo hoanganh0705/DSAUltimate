@@ -8,4 +8,7 @@ func main() {
 
 	nums2 := []int{1, 4, 5}
 	fmt.Println("Permutations of", nums2, "are:", permute(nums2))
+
+	nums3 := []int{1, 1, 2}
+	fmt.Println("Permutations of", nums3, "are:", permuteUnique(nums3))
 }

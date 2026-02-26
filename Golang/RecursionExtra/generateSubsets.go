@@ -27,6 +27,7 @@ func generateSubsets(nums []int) [][]int {
 	subsetsWithoutFirst := generateSubsets(rest)
 
 	// subsets có phần tử first
+	// create a new slice to hold subsets with first, with capacity equal to subsetsWithoutFirst length
 	subsetsWithFirst := make([][]int, 0, len(subsetsWithoutFirst))
 
 	for _, subset := range subsetsWithoutFirst {
