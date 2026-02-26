@@ -29,10 +29,25 @@ func permute(nums []int) [][]int {
 		}
 		for i := start; i < len(nums); i++ {
 			nums[start], nums[i] = nums[i], nums[start] // Swap
-			backtrack(start + 1)                        // Recurse
+			backtrack(start + 1)                        // Recurse, this will include a branch with 2 more call
 			nums[start], nums[i] = nums[i], nums[start] // Backtrack (swap back)
 		}
 	}
 	backtrack(0)
 	return result
 }
+
+/*
+	backtrack(0)
+├── backtrack(1)  (fix 1)
+│   ├── backtrack(2) → [1,4,5]
+│   └── backtrack(2) → [1,5,4]
+├── backtrack(1)  (fix 4)
+│   ├── backtrack(2) → [4,1,5]
+│   └── backtrack(2) → [4,5,1]
+└── backtrack(1)  (fix 5)
+    ├── backtrack(2) → [5,4,1]
+    └── backtrack(2) → [5,1,4]
+
+	call stack for this ex
+*/
