@@ -1,3 +1,6 @@
+from rpds import List
+
+
 def enhancedSudoku(self, board: List[List[str]]) -> None:
     """
     Do not return anything, modify board in-place instead.
