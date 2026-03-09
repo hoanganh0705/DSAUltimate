@@ -16,3 +16,30 @@ You will start at index 1.
 */
 
 package main
+
+import "math"
+
+func minCostClimbingStairs(cost []int) int {
+
+	n := len(cost)
+
+	var helper func(index int) int
+
+	helper = func(index int) int {
+
+		// base case
+		if index > n-1 {
+			return 0
+		}
+
+		// one step
+		onestep := cost[index] + helper(index+1)
+
+		// two steps
+		twostep := cost[index] + helper(index+2)
+
+		return int(math.Min(float64(onestep), float64(twostep)))
+	}
+
+	return int(math.Min(float64(helper(0)), float64(helper(1))))
+}
