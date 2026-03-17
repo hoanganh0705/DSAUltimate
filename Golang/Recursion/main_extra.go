@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func demoExtra() {
 	// sum digit
 	// result := sumDigits(999, 0)
 	// fmt.Println(result)
