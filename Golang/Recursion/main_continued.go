@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func demoContinued() {
 	n := 3
 	moves := toh(n, "rod 1", "rod 3", "rod 2")
 	fmt.Println(moves)
