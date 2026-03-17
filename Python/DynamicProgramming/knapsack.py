@@ -14,3 +14,22 @@ Output: 12
 Explanation: Choose the last 2 items that weighs 2 and 5 units respectively and hold values 3 and 9 that add up to 12.
 
 '''
+
+def knapSack(W, wt, val, n):
+    # write code here
+
+    def helper(index, rem_weight):
+        # base case
+        if index > n - 1 or rem_weight == 0:
+            return 0
+
+        # recursive case
+        exclude = helper(index + 1, rem_weight)
+        include = 0
+
+        if wt[index] <= rem_weight:
+            include = val[index] + helper(index + 1, rem_weight - wt[index])
+
+        return max(exclude, include)
+
+    return helper(0, W)

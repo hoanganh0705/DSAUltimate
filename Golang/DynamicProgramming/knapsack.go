@@ -16,3 +16,29 @@ Explanation: Choose the last 2 items that weighs 2 and 5 units respectively and 
 */
 
 package main
+
+func knapsack(W int, wt []int, val []int, n int) int {
+	return knapsackHelper(0, W, wt, val, n)
+}
+
+func knapsackHelper(index int, remWeight int, wt []int, val []int, n int) int {
+	// base case
+	if index >= n || remWeight == 0 {
+		return 0
+	}
+
+	// exclude current item
+	exclude := knapsackHelper(index+1, remWeight, wt, val, n)
+
+	// include current item (if possible)
+	include := 0
+	if wt[index] <= remWeight {
+		include = val[index] + knapsackHelper(index+1, remWeight-wt[index], wt, val, n)
+	}
+
+	// choose best
+	if exclude > include {
+		return exclude
+	}
+	return include
+}

@@ -14,3 +14,32 @@ Output: 12
 Explanation: Choose the last 2 items that weighs 2 and 5 units respectively and hold values 3 and 9 that add up to 12.
 
 */
+
+function knapSack(
+  W: number,
+  wt: number[],
+  val: number[],
+  n: number
+): number {
+
+  function helper(index: number, remWeight: number): number {
+    // base case
+    if (index >= n || remWeight === 0) {
+      return 0;
+    }
+
+    // exclude current item
+    const exclude: number = helper(index + 1, remWeight);
+
+    // include current item (if possible)
+    let include: number = 0;
+    if (wt[index] <= remWeight) {
+      include = val[index] + helper(index + 1, remWeight - wt[index]);
+    }
+
+    // choose best
+    return Math.max(exclude, include);
+  }
+
+  return helper(0, W);
+}
