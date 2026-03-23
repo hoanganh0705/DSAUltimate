@@ -10,10 +10,16 @@ func main() {
 	// 	fmt.Printf("%d ", result[i])
 	// }
 
-	monoArr := []int{2, 3, 6, 5, 6}
-	monoArr1 := []int{1, 3, 2}
-	monoArr2 := []int{1, 1, 1}
-	fmt.Println(isMonotonic(monoArr))
-	fmt.Println(isMonotonic(monoArr1))
-	fmt.Println(isMonotonic(monoArr2))
+	// monoArr := []int{2, 3, 6, 5, 6}
+	// monoArr1 := []int{1, 3, 2}
+	// monoArr2 := []int{1, 1, 1}
+	// fmt.Println(isMonotonic(monoArr))
+	// fmt.Println(isMonotonic(monoArr1))
+	// fmt.Println(isMonotonic(monoArr2))
+
+	arr := []int{1, 2, 3, 4, 5}
+	k := 7
+	x := rotateArray(arr, k)
+	fmt.Print(x)
+
 }
