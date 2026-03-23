@@ -7,4 +7,8 @@ func main() {
 	W := 25
 	n := len(arr)
 	fmt.Println(fractionalKnapsack(W, arr, n))
+
+	tasks := []byte{'A', 'A', 'A', 'B', 'B', 'B'}
+	n1 := 2
+	fmt.Println(leastInterval(tasks, n1))
 }
