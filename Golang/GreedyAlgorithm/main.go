@@ -10,5 +10,5 @@ func main() {
 
 	tasks := []byte{'A', 'A', 'A', 'B', 'B', 'B'}
 	n1 := 2
-	fmt.Println(leastInterval(tasks, n1)) // Output: 8
+	fmt.Println(leastInterval(tasks, n1))
 }
